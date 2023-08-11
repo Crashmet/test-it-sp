@@ -59,7 +59,7 @@ table {
 th {
   position: relative;
   padding-left: 45px;
-  background-color: #4caf50;
+  background-color: hsla(160, 100%, 37%, 1);
   color: white;
   font-weight: bold;
 }
@@ -67,7 +67,7 @@ th {
 tr:hover,
 tr:active,
 tr:focus {
-  background: #32813634;
+  background: rgba(0, 189, 126, 0.2);
 }
 
 th,
@@ -105,7 +105,7 @@ td {
 }
 
 .edit-btn:hover {
-  background-color: #4caf50;
+  background-color: hsla(160, 100%, 37%, 1);
 }
 
 .delete-btn:hover {

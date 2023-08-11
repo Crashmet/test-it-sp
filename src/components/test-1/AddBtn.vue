@@ -21,7 +21,7 @@ const modalStore = useModalStore();
   padding: 6px;
   width: 50%;
   color: #ffffff;
-  background: #4caf50;
+  background: hsla(160, 100%, 37%, 1);
   border: 0;
   font-size: 12px;
   font-weight: bold;
@@ -33,6 +33,6 @@ const modalStore = useModalStore();
 .button_add:hover,
 .button_add:active,
 .button_add:focus {
-  background: #328136;
+  background: rgba(0, 189, 126, 0.7);
 }
 </style>

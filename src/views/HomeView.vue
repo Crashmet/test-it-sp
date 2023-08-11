@@ -11,7 +11,7 @@ const modalStore = useModalStore();
 <template>
   <main>
     <Modal v-if="modalStore.isModalActive" />
-    <section :class="{ blur: modalStore.isModalActive }">
+    <section class="sicton-test-1" :class="{ blur: modalStore.isModalActive }">
       <div class="btn-group">
         <add-btn />
         <sort-btn :class="{ none: modalStore.isModalActive }" />
@@ -22,8 +22,13 @@ const modalStore = useModalStore();
 </template>
 
 <style scoped>
+.sicton-test-1 {
+  padding: 0 15px;
+  min-width: 500px;
+}
 .btn-group {
   display: flex;
+  justify-content: space-between;
   border-top: 10px;
   margin-bottom: 10px;
 }

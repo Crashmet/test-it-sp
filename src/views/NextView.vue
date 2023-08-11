@@ -37,10 +37,7 @@ onMounted(() => {
 <template>
   <div class="next">
     <div>
-      <div
-        class="v-input v-input--horizontal v-input--density-default v-locale--is-ltr v-input--dirty v-textarea v-text-field"
-        :class="{ 'active-textarea': isActiveTextarea }"
-      >
+      <div class="v-textarea" :class="{ 'active-textarea': isActiveTextarea }">
         <!---->
 
         <div class="v-field__field">
@@ -86,6 +83,43 @@ onMounted(() => {
   transition: background-color 0.2s ease-in;
 }
 
+.v-field__field::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  display: block;
+  height: 1px;
+  background: none repeat scroll 0 0 transparent;
+  background: black;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.v-textarea:hover > .v-field__field::before,
+.v-textarea:focus > .v-field__field::before,
+.v-textarea:active > .v-field__field::before {
+  width: 100%;
+  left: 0;
+}
+
+.v-field__input {
+  display: flex;
+  flex-wrap: wrap;
+  padding-inline-start: 16px;
+  padding-inline-end: 16px;
+  padding-top: 25px;
+  padding-bottom: 5px;
+  height: 150px;
+  letter-spacing: 0.009375em;
+  opacity: 0.87;
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  transition: opacity 0.2s ease-in;
+}
+
 .v-field__field textarea {
   width: 93%;
   resize: none;
@@ -95,6 +129,13 @@ onMounted(() => {
 .v-field__field textarea:focus,
 .v-field__field textarea:active {
   resize: vertical;
+}
+
+.v-field__field textarea:hover,
+.v-field__field textarea:focus,
+.v-field__field textarea:active {
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
 }
 
 .v-label {
@@ -115,16 +156,6 @@ onMounted(() => {
   transition: opacity 0.2s ease-out;
 }
 
-.v-field-label--after {
-  position: absolute;
-  z-index: 100;
-  top: 7px;
-  left: 10px;
-  font-size: 12px;
-  opacity: 0.6;
-  transition: opacity 0.2s ease-out;
-}
-
 .v-field__field textarea:focus ~ .v-field-label--before,
 .v-field__field textarea:active ~ .v-field-label--before {
   position: absolute;
@@ -136,38 +167,20 @@ onMounted(() => {
   transition: opacity 0.2s ease-out;
 }
 
+.v-field-label--after {
+  position: absolute;
+  z-index: 100;
+  top: 7px;
+  left: 10px;
+  font-size: 12px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease-out;
+}
+
 .v-field__field textarea:focus ~ .v-field-label--after,
 .v-field__field textarea:active ~ .v-field-label--after {
   opacity: 1;
   transition: opacity 0.2s ease-out;
-}
-
-.none-label {
-  display: none;
-}
-
-.v-field__input {
-  display: flex;
-  flex-wrap: wrap;
-  padding-inline-start: 16px;
-  padding-inline-end: 16px;
-  padding-top: 25px;
-  padding-bottom: 5px;
-  height: 150px;
-  letter-spacing: 0.009375em;
-  opacity: 0.87;
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  transition: opacity 0.2s ease-in;
-}
-
-.v-field__field textarea:hover,
-.v-field__field textarea:focus,
-.v-field__field textarea:active {
-  opacity: 1;
-  transition: opacity 0.2s ease-in;
 }
 
 .blur-textarea {
@@ -192,23 +205,7 @@ onMounted(() => {
   transition: background-color 0.2s ease-in;
 }
 
-.v-field__field::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  display: block;
-  height: 1px;
-  background: none repeat scroll 0 0 transparent;
-  background: black;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
-}
-
-.v-textarea:hover > .v-field__field::before,
-.v-textarea:focus > .v-field__field::before,
-.v-textarea:active > .v-field__field::before {
-  width: 100%;
-  left: 0;
+.none-label {
+  display: none;
 }
 </style>
