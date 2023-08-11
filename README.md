@@ -1,6 +1,6 @@
 # test-it-special
 
-This template should help get you started developing with Vue 3 in Vite.
+# Ссылка на приложение - [Landing](https://crashmet.github.io/test-it-sp/dist)
 
 ## Recommended IDE Setup
 
