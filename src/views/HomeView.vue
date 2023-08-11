@@ -3,7 +3,7 @@ import Modal from '@/components/test-1/Modal.vue';
 import AddBtn from '../components/test-1/AddBtn.vue';
 import Table from '../components/test-1/Table.vue';
 import SortBtn from '../components/test-1/SortBtn.vue';
-import { useModalStore } from '@/stores/modalStore.ts';
+import { useModalStore } from '@/stores/modalStore';
 
 const modalStore = useModalStore();
 </script>

@@ -2,18 +2,17 @@ import { ref, computed, reactive} from 'vue'
 import { defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid';
 
+interface NewUser {
+  userId: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  role: string;
+  avatar: string; 
+}
+
 
 export const useModalStore = defineStore('modalStore', () => {
-
-  interface NewUser {
-    userId: string;
-    firstName: string;
-    lastName: string;
-    phone: string;
-    role: string;
-    avatar: string;
-  }
-
 
   // data 
   const isModalActive = ref<boolean>(false);
@@ -112,14 +111,13 @@ export const useModalStore = defineStore('modalStore', () => {
     });
   };
 
-  const saveDataUser = (): void => { 
+  const saveDataUser = (): void => {
     if (isChangeModal.value) {
-      changeUserData()
+      changeUserData();
     } else {
-      addNewUser()
+      addNewUser();
     }
-
-  }
+  };
 
   return {isModalActive, isChangeModal, isSortName,firstName, lastName, phone, role, avatar, allUsers, toggleStatusActiveModal, addNewUser, viewUserData, deleteUser, changeUserData, saveDataUser }
 })

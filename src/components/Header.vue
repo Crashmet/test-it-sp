@@ -37,9 +37,10 @@ nav a.router-link-exact-active:hover {
 }
 
 nav a {
-  width: 100px;
   display: block;
   padding: 0 1rem;
+  width: 100px;
+  font-size: 20px;
   border-left: 1px solid var(--color-border);
 }
 

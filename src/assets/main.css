@@ -1,3 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*, :before, :after {
+  background-repeat: no-repeat;
+  box-sizing: inherit;
+}
+
+button, input, optgroup, select, textarea {
+  font: inherit;
+}
+
+button, input, select, textarea {
+  background-color: transparent;
+  outline: 0;
+}
+
+
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
