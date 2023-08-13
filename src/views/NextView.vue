@@ -1,11 +1,8 @@
 <script setup>
-// const scroll = document.getElementById('input-401');
-
 import { onMounted, ref } from 'vue';
 
 const scroll = ref(null);
 const isScroll = ref(false);
-const isActiveTextarea = ref(false);
 const contentTextarea = ref('');
 
 onMounted(() => {
@@ -23,21 +20,13 @@ onMounted(() => {
   scroll.value.addEventListener('input', (e) => {
     contentTextarea.value = e.target.value;
   });
-
-  scroll.value.addEventListener('mouseover', (e) => {
-    isActiveTextarea.value = true;
-  });
-
-  scroll.value.addEventListener('mouseout', (e) => {
-    isActiveTextarea.value = false;
-  });
 });
 </script>
 
 <template>
   <div class="next">
     <div>
-      <div class="v-textarea" :class="{ 'active-textarea': isActiveTextarea }">
+      <div class="v-textarea">
         <!---->
 
         <div class="v-field__field">
@@ -73,13 +62,21 @@ onMounted(() => {
   position: relative;
   width: 100%;
   min-width: 450px;
-  background-color: rgba(0, 0, 0, 0.04);
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   border-top: 0;
   border-right: 0;
   border-left: 0;
   border-bottom: 1px solid rgb(113, 113, 113);
+}
+
+.v-field__field {
+  background-color: rgba(0, 0, 0, 0.02);
+  transition: background-color 0.2s ease-in;
+}
+
+.v-textarea:hover > .v-field__field {
+  background-color: rgba(0, 0, 0, 0.07);
   transition: background-color 0.2s ease-in;
 }
 
@@ -153,7 +150,7 @@ onMounted(() => {
   top: 10px;
   left: 14px;
   opacity: 0.6;
-  transition: opacity 0.2s ease-out;
+  transition: all 0.12s ease-out;
 }
 
 .v-field__field textarea:focus ~ .v-field-label--before,
@@ -164,7 +161,7 @@ onMounted(() => {
   left: 10px;
   font-size: 12px;
   opacity: 1;
-  transition: opacity 0.2s ease-out;
+  transition: all 0.12s ease-out;
 }
 
 .v-field-label--after {
@@ -198,11 +195,6 @@ onMounted(() => {
     transparent calc(10px + 15px - 6px),
     black calc(10px + 15px + 4px)
   );
-}
-
-.active-textarea {
-  background-color: rgba(0, 0, 0, 0.07);
-  transition: background-color 0.2s ease-in;
 }
 
 .none-label {
